@@ -206,12 +206,12 @@ class Languages_test(TestCase):
         config = {'c': {'name': "C",
                         'priority': 42,
                         'files': "*.c",
-                        'compile': "/usr/bin/gcc -g -O2 -std=gnu99 -static -o {binary} {files} -lm",
+                        'compile': "/usr/bin/gcc -g -O2 -std=gnu99 -o {binary} {files} -lm",
                         'run': "{binary}"},
                   'cpp': {'name': "C++",
                           'priority': 42,
                           'files': "*.cc *.C *.cpp *.cxx *.c++",
-                          'compile': "/usr/bin/g++ -g -O2 -std=gnu++11 -static -o {binary} {files}",
+                          'compile': "/usr/bin/g++ -g -O2 -std=gnu++11 -o {binary} {files}",
                           'run': "{binary}"}}
 
         with pytest.raises(languages.LanguageConfigError):
@@ -226,12 +226,12 @@ class Languages_test(TestCase):
         conf2 = [{'name': "C",
                   'priority': 1,
                   'files': "*.c",
-                  'compile': "/usr/bin/gcc -g -O2 -std=gnu99 -static -o {binary} {files} -lm",
+                  'compile': "/usr/bin/gcc -g -O2 -std=gnu99 -o {binary} {files} -lm",
                   'run': "{binary}"},
                  {'name': "C++",
                   'priority': 2,
                   'files': "*.cc *.C *.cpp *.cxx *.c++",
-                  'compile': "/usr/bin/g++ -g -O2 -std=gnu++11 -static -o {binary} {files}",
+                  'compile': "/usr/bin/g++ -g -O2 -std=gnu++11 -o {binary} {files}",
                   'run': "{binary}"}]
         conf3 = None
         with pytest.raises(languages.LanguageConfigError):
